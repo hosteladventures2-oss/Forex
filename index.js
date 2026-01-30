@@ -7,7 +7,7 @@ import path from "path";
 import fs from "fs";
 import GPPUSD from "./Functions/GPPUSD.js";
 import JPPUSD from "./Functions/JPPUSD.js";
-
+//
 const app = express();
 const PORT = process.env.PORT || 5000;
 
