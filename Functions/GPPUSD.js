@@ -37,7 +37,7 @@ const Fetch_rates = (API_KEY, BASE_URL, axios) => {
 
       const price = res.data.results.USD;
       prices.push(price);
-      console.log("Price:", price);
+      //console.log("Price:", price);
     } catch (err) {
       console.error("Fetch error:", err.message);
     }
@@ -72,13 +72,13 @@ const Fetch_rates = (API_KEY, BASE_URL, axios) => {
 
     fs.writeFileSync(DATA_FILE, JSON.stringify(candles, null, 2));
 
-    console.log("Saved candle:", candle);
+   // console.log("Saved candle:", candle);
 
     prices = []; // reset for next candle
   }
 
   // Fetch every 10 seconds
-  setInterval(fetchEURUSD, 1000);
+  setInterval(fetchEURUSD, 5000);
 
   // Calculate OHLC every 60 seconds
   setInterval(calculateOHLC, 60000);
