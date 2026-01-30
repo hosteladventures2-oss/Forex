@@ -17,16 +17,28 @@ app.use(cors({ origin: "*" }));
 const API_KEY = "793a834b52-732aac3eb6-t9ijlm";
 const BASE_URL = "https://api.fastforex.io";
 
+let EURUSD = [] // display this array
+let GPBUSD = []
+let JPYUSD = []
+
 // API endpoint
-app.get("/candles", (req, res) => {
-  res.json(candleData);
+app.get("/EURUSD", (req, res) => {
+  res.json(EURUSD);
 });
 
-app.use("/data", express.static("data"));
+app.get("/GBPUSD", (req, res) => {
+  res.json(GPBUSD);
+});
 
-Fetch_rates(API_KEY, BASE_URL, axios, path, fs) // fetching data for EURUSD
-GPPUSD(API_KEY, BASE_URL, axios, path, fs) // fetching data for GPPUSD
-JPPUSD(API_KEY, BASE_URL, axios, path, fs) // fetching data for JPPUSD
+app.get("/JPYUSD", (req, res) => {
+  res.json(JPYUSD);
+});
+
+//app.use("/data", express.static("data"));
+
+Fetch_rates(API_KEY, BASE_URL, axios, EURUSD) // fetching data for EURUSD
+GPPUSD(API_KEY, BASE_URL, axios, GPBUSD) // fetching data for GPPUSD
+JPPUSD(API_KEY, BASE_URL, axios, JPYUSD) // fetching data for JPPUSD
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
