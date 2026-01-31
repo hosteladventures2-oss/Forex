@@ -38,30 +38,30 @@ await fetch("http://forexapi.atwebpages.com/json_files/EURUSD_fetch.php", {
     }
   }
 
-  function calculateOHLC() {
-    if (prices.length === 0) return;
+function calculateOHLC() {
+  if (prices.length === 0) return;
 
-    const open = prices[0];
-    const close = prices[prices.length - 1];
-    const high = Math.max(...prices);
-    const low = Math.min(...prices);
+  const open = prices[0];
+  const close = prices[prices.length - 1];
+  const high = Math.max(...prices);
+  const low = Math.min(...prices);
 
-    const time = Math.floor(Date.now() / 60000) * 60;
+  const time = Math.floor(Date.now() / 60000) * 60;
 
-    EURUSD.push({
-      time,
-      open,
-      high,
-      low,
-      close,
-    });
+  const last = EURUSD[EURUSD.length - 1];
 
-    console.log("EURUSD candle:", EURUSD[EURUSD.length - 1]);
-
-    place_array(time, open, high, low, close)
-
-    prices.length = 0;
+  // 🔑 Prevent duplicate timestamps
+  if (last && last.time === time) {
+    EURUSD[EURUSD.length - 1] = { time, open, high, low, close };
+  } else {
+    EURUSD.push({ time, open, high, low, close });
   }
+
+  console.log("EURUSD candle:", EURUSD[EURUSD.length - 1]);
+
+  place_array(time, open, high, low, close);
+  prices.length = 0;
+}
 
   setInterval(fetchEURUSD, 5000);
   setInterval(calculateOHLC, 60000);
