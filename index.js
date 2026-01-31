@@ -36,6 +36,11 @@ app.get("/JPYUSD", (req, res) => {
   res.json(JPYUSD);
 });
 
+app.post("/php-notify", (req, res) => {
+  console.log("Message from PHP:", req.body);
+  res.json({ received: true });
+});
+
 //app.use("/data", express.static("data"));
 
 Fetch_rates(API_KEY, BASE_URL, axios, EURUSD,  https) // fetching data for EURUSD
