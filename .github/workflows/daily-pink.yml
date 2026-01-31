@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: Run cURL on Website
-        run: curl -https://forex-owvr.onrender.com
+        run: curl - I https://forex-owvr.onrender.com
