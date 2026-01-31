@@ -23,11 +23,6 @@ let EURUSD = [] // display this array
 let GPBUSD = []
 let JPYUSD = []
 
-// API endpoint
-app.get("/", (req, res) => {
-  res.send("Server alive ✅");
-});
-
 app.get("/EURUSD", (req, res) => {
   res.json(EURUSD);
 });
@@ -40,16 +35,7 @@ app.get("/JPYUSD", (req, res) => {
   res.json(JPYUSD);
 });
 
-app.post("/receive", (req, res) => {
-  const message = req.body.message;
 
-  console.log("Message from PHP:", message);
-
-  res.json({
-    status: "success",
-    received: message
-  });
-});
 //app.use("/data", express.static("data"));
 
 //Fetch_rates(API_KEY, BASE_URL, axios, EURUSD,  https) // fetching data for EURUSD
