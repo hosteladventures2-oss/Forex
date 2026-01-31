@@ -24,6 +24,10 @@ let GPBUSD = []
 let JPYUSD = []
 
 // API endpoint
+app.get("/", (req, res) => {
+  res.send("Server alive ✅");
+});
+
 app.get("/EURUSD", (req, res) => {
   res.json(EURUSD);
 });
