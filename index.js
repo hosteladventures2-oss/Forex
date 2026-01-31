@@ -52,7 +52,7 @@ app.post("/receive", (req, res) => {
 });
 //app.use("/data", express.static("data"));
 
-Fetch_rates(API_KEY, BASE_URL, axios, EURUSD,  https) // fetching data for EURUSD
+//Fetch_rates(API_KEY, BASE_URL, axios, EURUSD,  https) // fetching data for EURUSD
 //GPPUSD(API_KEY, BASE_URL, axios, GPBUSD) // fetching data for GPPUSD
 //JPPUSD(API_KEY, BASE_URL, axios, JPYUSD) // fetching data for JPPUSD
 
