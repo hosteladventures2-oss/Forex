@@ -15,7 +15,7 @@ await fetch("http://forexapi.atwebpages.com/json_files/EURUSD_fetch.php", {
 
 });
 
-//
+
   }
 
   async function fetchEURUSD() {
