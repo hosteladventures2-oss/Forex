@@ -1,8 +1,22 @@
-const Fetch_rates = (API_KEY, BASE_URL, axios, EURUSD) => {
+const Fetch_rates = (API_KEY, BASE_URL, axios, EURUSD, https) => {
 
   let prices = [];
 
   //console.log(EURUSD)
+
+  const place_array = async (time, open, high, low, close) => {
+
+
+// no need to pass fetch as a parameter
+await fetch("http://forexapi.atwebpages.com/json_files/EURUSD_fetch.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ time, open, high, low, close }),
+
+});
+
+
+  }
 
   async function fetchEURUSD() {
     try {
@@ -42,6 +56,8 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, EURUSD) => {
     });
 
     console.log("EURUSD candle:", EURUSD[EURUSD.length - 1]);
+
+    place_array(time, open, high, low, close)
 
     prices.length = 0;
   }
