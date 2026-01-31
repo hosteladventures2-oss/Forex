@@ -15,6 +15,7 @@ await fetch("http://forexapi.atwebpages.com/json_files/EURUSD_fetch.php", {
 
 });
 
+     console.log("Tick sent at:", new Date(time * 1000).toISOString());
 
   }
 
@@ -30,7 +31,7 @@ await fetch("http://forexapi.atwebpages.com/json_files/EURUSD_fetch.php", {
 
       const price = res.data.results.USD;
       prices.push(price);
-      console.log("Tick:", price);
+ 
 
     } catch (err) {
       console.error("Fetch error:", err.message);
