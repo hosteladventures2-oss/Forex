@@ -2,7 +2,20 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, GBPUSD) => {
 
   let prices = [];
 
-  //console.log(EURUSD)
+    const place_array = async (time, open, high, low, close) => {
+
+
+// no need to pass fetch as a parameter
+        await fetch("http://forexapi.atwebpages.com/json_files/GPBUSD_fetch.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ time, open, high, low, close }),
+
+        });
+
+
+   }
+
 
   async function fetchEURUSD() {
     try {
@@ -16,7 +29,7 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, GBPUSD) => {
 
       const price = res.data.results.USD;
       prices.push(price);
-      console.log("Tick:", price);
+      //console.log("Tick:", price);
 
     } catch (err) {
       console.error("Fetch error:", err.message);
@@ -42,6 +55,8 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, GBPUSD) => {
     });
 
     console.log("GPBUSD candle:", GBPUSD[GBPUSD.length - 1]);
+
+    place_array(time, open, high, low, close)
 
     prices.length = 0;
   }
