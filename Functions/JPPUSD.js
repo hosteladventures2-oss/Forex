@@ -4,7 +4,19 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, JPYUSD) => {
 
   let EURUSD = JPYUSD
 
-  //console.log(EURUSD)
+    const place_array = async (time, open, high, low, close) => {
+
+
+
+        await fetch("http://forexapi.atwebpages.com/json_files/JPYUSD_fetch.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ time, open, high, low, close }),
+
+        });
+
+
+   }
 
   async function fetchEURUSD() {
     try {
@@ -17,7 +29,7 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, JPYUSD) => {
       });
 
       const price = res.data.results.USD;
-      prices.push(price);
+     // prices.push(price);
       console.log("Tick:", price);
 
     } catch (err) {
@@ -44,6 +56,8 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, JPYUSD) => {
     });
 
     console.log("EURUSD candle:", EURUSD[EURUSD.length - 1]);
+
+    place_array(time, open, high, low, close)
 
     prices.length = 0;
   }
