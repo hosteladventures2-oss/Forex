@@ -23,6 +23,10 @@ let EURUSD = [] // display this array
 let GPBUSD = []
 let JPYUSD = []
 
+app.get("/", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.get("/EURUSD", (req, res) => {
   res.json(EURUSD);
 });
