@@ -3,7 +3,7 @@ name: Ping Render Every Minute
 # Runs every 5 minutes
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/10 * * * *"
 
 jobs:
   ping_render:
