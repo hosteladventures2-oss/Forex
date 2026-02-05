@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(cors({ origin: "*" }));
 
-const API_KEY = "793a834b52-732aac3eb6-t9ijlm";
+const API_KEY = "f426932b6c-bf7bc8ff15-t9yukc";
 const BASE_URL = "https://api.fastforex.io";
 
 let EURUSD = [] // display this array
