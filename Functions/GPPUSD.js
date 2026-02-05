@@ -62,7 +62,7 @@ const Fetch_rates = (API_KEY, BASE_URL, axios, GBPUSD) => {
   }
 //
   setInterval(fetchEURUSD, 5000);
-  setInterval(calculateOHLC, 9000000);
+  setInterval(calculateOHLC, 900000);
 };
 
 export default Fetch_rates;
