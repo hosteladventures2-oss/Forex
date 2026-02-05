@@ -64,7 +64,7 @@ function calculateOHLC() {
 }
 
   setInterval(fetchEURUSD, 5000);
-  setInterval(calculateOHLC, 60000);
+  setInterval(calculateOHLC, 900000);
 };
 
 export default Fetch_rates;
