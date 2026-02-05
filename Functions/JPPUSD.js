@@ -63,7 +63,7 @@ function calculateOHLC() {
   prices.length = 0;
 }
 
-  setInterval(fetchEURUSD, 5000);
+  setInterval(fetchEURUSD, 900000);
   setInterval(calculateOHLC, 60000);
 };
 
